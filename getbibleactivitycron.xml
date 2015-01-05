@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension method="upgrade" version="2.5" type="plugin" group="system">
+	<name>plg_system_getbibleactivitycron</name>
+	<author>Llewellyn van der Merwe</author>
+	<creationDate>December 2014</creationDate>
+	<copyright>Copyright (C) 2005 - 2014.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>llewellyn@vdm.io</authorEmail>
+	<authorUrl>www.vdm.io</authorUrl>
+	<version>1.0.0</version>
+	<description><![CDATA[
+		<h1>Activity Cron Plugin for Get Bible (v.1.0.0)</h1>
+		<div style="clear: both;"></div>
+		<p>Cronical functions are run via this plugin for Get Bible!</p>
+		<p>Created by Llewellyn van de Merwe | <a href="http://www.vdm.io/joomla" target="_blank">www.vdm.io</a>
+	]]></description>
+	<scriptfile>script.php</scriptfile>
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.sql</file>
+		</sql>
+	</install>
+	<uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.sql</file>
+		</sql>
+	</uninstall>
+	<files>
+		<folder>sql</folder>
+		<folder>admin</folder>
+		<folder>site</folder>
+		<filename plugin="getbibleactivitycron">getbibleactivitycron.php</filename>
+		<filename>index.html</filename>
+	</files>	
+	<languages>
+		<language tag="en-GB">en-GB.plg_system_getbibleactivitycron.ini</language>
+		<language tag="en-GB">en-GB.plg_system_getbibleactivitycron.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+
+			<fieldset name="basic">
+				<field
+					name="timer"
+					type="list"
+					default="-1 day"
+					label="PLG_SYSTEM_GETBIBLEACTIVITYCRON_TIMER_LABEL"
+					description="PLG_SYSTEM_GETBIBLEACTIVITYCRON_TIMER_DESC">
+					<option
+						value="-1 hour">PLG_SYSTEM_GETBIBLEACTIVITYCRON_CONFIG_ONCE_A_HOUR</option>
+					<option
+						value="-5 hours">PLG_SYSTEM_GETBIBLEACTIVITYCRON_CONFIG_EVERY_FIVE_HOURS</option>
+					<option
+						value="-12 hours">PLG_SYSTEM_GETBIBLEACTIVITYCRON_CONFIG_EVERY_TWELVE_HOURS</option>
+					<option
+						value="-1 day">PLG_SYSTEM_GETBIBLEACTIVITYCRON_CONFIG_ONCE_A_DAY</option>
+					<option
+						value="-2 day">PLG_SYSTEM_GETBIBLEACTIVITYCRON_CONFIG_SECOND_DAY</option>
+					<option
+						value="-5 day">PLG_SYSTEM_GETBIBLEACTIVITYCRON_CONFIG_FIFTH_DAY</option>
+					<option
+						value="-7 day">PLG_SYSTEM_GETBIBLEACTIVITYCRON_CONFIG_ONCE_A_WEEK</option>
+					<option
+						value="0">PLG_SYSTEM_GETBIBLEACTIVITYCRON_CONFIG_NEVER</option>
+				</field>
+			</fieldset>
+
+		</fields>
+	</config>
+</extension>
