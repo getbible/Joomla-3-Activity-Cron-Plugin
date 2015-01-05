@@ -20,19 +20,34 @@ class plgSystemGetBibleActivityCronInstallerScript
 		
 		$app = JFactory::getApplication();
 		
+		$jversion = new JVersion();
+		if (!$jversion->isCompatible('3.0.0')) {
+			$app->enqueueMessage('Please upgrade to at least Joomla! 3.0.0 before continuing!', 'error');
+			return false;
+		}
+		
+		if (!file_exists(JPATH_ADMINISTRATOR.'/components/com_getbible/helpers/get.php') && !file_exists(JPATH_ADMINISTRATOR.'/components/com_ipdata/helpers/ipdata.php')) {
+			$app->enqueueMessage('Please install the <a href="https://getbible.net/downloads" target="_blank">GetBible component</a> and please also install the <a href="https://www.vdm.io/joomla/item/ip-data" target="_blank">Ipdata component</a> before continuing.', 'error');
+			return false;
+		}
+		
 		if (!file_exists(JPATH_ADMINISTRATOR.'/components/com_getbible/helpers/get.php')) {
 			$app->enqueueMessage('Please install the <a href="https://getbible.net/downloads" target="_blank">GetBible component</a> before continuing.', 'error');
 			return false;
 		}
 		
-		if (!file_exists(JPATH_ADMINISTRATOR.'/components/com_ipdata/helpers/ipdata.php')) {
-			$app->enqueueMessage('Please install the <a href="https://www.vdm.io/joomla/item/ip-data" target="_blank">Ipdata component</a> before continuing.', 'error');
+		if (!file_exists(JPATH_ADMINISTRATOR.'/components/com_getbible/models/get.php') && !file_exists(JPATH_ADMINISTRATOR.'/components/com_ipdata/helpers/ipdata.php')) {
+			$app->enqueueMessage('You must first upgrade the GetBible component to <a href="https://getbible.net/downloads" target="_blank">v1.0.6</a> and please also install the <a href="https://www.vdm.io/joomla/item/ip-data" target="_blank">Ipdata component</a> before continuing.', 'error');
 			return false;
 		}
 		
-		$jversion = new JVersion();
-		if (!$jversion->isCompatible('3.0.0')) {
-			$app->enqueueMessage('Please upgrade to at least Joomla! 3.0.0 before continuing!', 'error');
+		if (!file_exists(JPATH_ADMINISTRATOR.'/components/com_getbible/models/get.php')) {
+			$app->enqueueMessage('You must first upgrade the GetBible component to <a href="https://getbible.net/downloads" target="_blank">v1.0.6</a> before continuing.', 'error');
+			return false;
+		}
+		
+		if (!file_exists(JPATH_ADMINISTRATOR.'/components/com_ipdata/helpers/ipdata.php')) {
+			$app->enqueueMessage('Please install the <a href="https://www.vdm.io/joomla/item/ip-data" target="_blank">Ipdata component</a> before continuing.', 'error');
 			return false;
 		}
 		
