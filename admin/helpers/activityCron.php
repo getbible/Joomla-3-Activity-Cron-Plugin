@@ -1,7 +1,7 @@
 <?php
 /**
 *
-* 	@version 	1.0.5  December 08, 2014
+* 	@version 	1.0.7  January 16, 2015
 * 	@package 	Get Bible API
 * 	@author  	Llewellyn van der Merwe <llewellyn@vdm.io>
 * 	@adapted	class phpIp2Country to class Ipdata helper class for Joomla 3

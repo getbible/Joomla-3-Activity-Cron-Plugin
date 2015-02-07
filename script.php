@@ -1,7 +1,7 @@
 <?php
 /**
 * 
-* 	@version 	1.0.5  December 08, 2014
+* 	@version 	1.0.7  January 16, 2015
 * 	@package 	Get Bible API
 * 	@author  	Llewellyn van der Merwe <llewellyn@vdm.io>
 * 	@copyright	Copyright (C) 2013 Vast Development Method <http://www.vdm.io>
@@ -100,6 +100,7 @@ class plgSystemGetBibleActivityCronInstallerScript
 	}
 	
 	public function uninstall($parent){
+		$app = JFactory::getApplication();
 		// remove activityCron helper file
 		$activityCron	= JPATH_ADMINISTRATOR.'/components/com_getbible/helpers/activityCron.php';
 		if (!JFile::delete($activityCron)) {
