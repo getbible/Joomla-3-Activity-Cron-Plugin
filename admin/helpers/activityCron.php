@@ -24,10 +24,10 @@ abstract class GetBibleActivityCron
 		// update active state
 		if(self::setActiveState($time)){
 			if(self::unActive()){
-				if (file_exists(JPATH_ADMINISTRATOR.DS.'components'.DS.'com_ipdata'.DS.'helpers'.DS.'ipdata.php')) {
+				if (file_exists(JPATH_ADMINISTRATOR.'/components/com_ipdata/helpers/ipdata.php')) {
 					// Import dependencies
 					jimport('joomla.filesystem.file');
-					JLoader::register('IpdataHelper', JPATH_ADMINISTRATOR.DS.'components'.DS.'com_ipdata'.DS.'helpers'.DS.'ipdata.php');
+					JLoader::register('IpdataHelper', JPATH_ADMINISTRATOR.'/components/com_ipdata/helpers/ipdata.php');
 					// Now we can run cron job all is ready
 					return true;
 				}
@@ -121,7 +121,7 @@ abstract class GetBibleActivityCron
 	 */
 	protected static function querySync()
 	{
-		$filename = JPATH_ROOT.DS.'logs'.DS.'getbible_query.php';
+		$filename = JPATH_ROOT.'/logs/getbible_query.php';
 		if (file_exists($filename)) {
 			// set versions
 			$versionArray = self::getVersions();
@@ -182,7 +182,7 @@ abstract class GetBibleActivityCron
 			
 			// change file name so not to add these logs again
 			$file = null;
-			$new_filename = JPATH_ROOT.DS.'logs'.DS.'getbible_query_'.JFactory::getDate()->toUnix().'.php';
+			$new_filename = JPATH_ROOT.'/logs/getbible_query_'.JFactory::getDate()->toUnix().'.php';
 			JFile::move($filename, $new_filename);
 			
 			return true;

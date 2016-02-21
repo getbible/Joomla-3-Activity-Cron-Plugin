@@ -29,8 +29,8 @@ class plgSystemGetBibleActivityCron extends JPlugin
 	protected $com_params;
 	
 	protected function canRun() {
-		if (file_exists(JPATH_ADMINISTRATOR.DS.'components'.DS.'com_getbible'.DS.'helpers'.DS.'activityCron.php')) {
-			require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_getbible'.DS.'helpers'.DS.'activityCron.php';
+		if (file_exists(JPATH_ADMINISTRATOR.'/components/com_getbible/helpers/activityCron.php')) {
+			require_once JPATH_ADMINISTRATOR.'/components/com_getbible/helpers/activityCron.php';
 			// get timer
 			$timer = $this->params->get('timer', '-1 day');
 			if(GetBibleActivityCron::canRun($timer)){
@@ -197,7 +197,7 @@ class plgSystemGetBibleActivityCron extends JPlugin
 	
 	protected function getData()
 	{	
-		if (file_exists(JPATH_ADMINISTRATOR.DS.'components'.DS.'com_getbible'.DS.'helpers'.DS.'activityCron.php')) {	
+		if (file_exists(JPATH_ADMINISTRATOR.'/components/com_getbible/helpers/activityCron.php')) {	
 			// Get a db connection.
 			$db = JFactory::getDbo();
 			// Create a new query object.
